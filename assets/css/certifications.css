@@ -1,0 +1,87 @@
+/* ============================================================
+   certifications.css — Certifications Section
+   ============================================================ */
+
+
+/* ============================================================
+   HORIZONTAL SCROLL ROW
+   ============================================================ */
+.certs-scroll-row {
+  display: flex;
+  gap: var(--sp-3);
+  overflow: hidden;
+  padding-bottom: var(--sp-2);
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.certs-track {
+  display: flex;
+  gap: var(--sp-3);
+  animation: certs-loop 18s linear infinite;
+  will-change: transform;
+}
+
+.certs-scroll-row:hover .certs-track {
+  animation-play-state: paused;
+}
+
+@keyframes certs-loop {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+/* ============================================================
+   CERT ITEM
+   ============================================================ */
+.cert-item {
+  flex: 0 0 auto;
+  width: 220px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cert-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cert-item:active {
+  transform: scale(0.97);
+}
+
+
+/* ============================================================
+   CERT IMAGE
+   ============================================================ */
+.cert-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-elevated);
+}
+
+
+/* ============================================================
+   DESKTOP
+   ============================================================ */
+@media (min-width: 768px) {
+  .cert-item {
+    width: 260px;
+  }
+
+  .cert-image {
+    height: 165px;
+  }
+}

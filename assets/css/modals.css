@@ -1,0 +1,432 @@
+/* ============================================================
+   modals.css — All Modals & Overlays
+   Contact form, Video player, Certificate lightbox
+   ============================================================ */
+
+
+/* ============================================================
+   MODAL OVERLAY (backdrop)
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: flex-end;      /* mobile: sheet slides up from bottom */
+  justify-content: center;
+  padding: 0;
+
+  /* Hidden state */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.modal-overlay.is-visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* ============================================================
+   MODAL BOX (the white/dark card)
+   ============================================================ */
+.modal-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: var(--shadow-modal);
+  width: 100%;
+  max-width: 480px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: var(--sp-5);
+
+  /* Slide up animation */
+  transform: translateY(32px);
+  transition:
+    transform var(--transition-slow),
+    background var(--transition-slow),
+    border-color var(--transition-slow);
+}
+
+.modal-overlay.is-visible .modal-box {
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   MODAL HEADER
+   ============================================================ */
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: var(--sp-1);
+}
+
+.modal-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modal-close-btn:hover {
+  background: var(--btn-secondary-hover);
+  color: var(--text-primary);
+}
+
+.modal-close-btn:active {
+  transform: scale(0.90);
+}
+
+
+/* ============================================================
+   MODAL BODY
+   ============================================================ */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg-input);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-slow);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.form-input.is-error {
+  border-color: #f87171;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+.form-error {
+  font-size: var(--text-xs);
+  color: #f87171;
+  min-height: 16px;
+  display: block;
+}
+
+
+/* ============================================================
+   MODAL FOOTER (buttons row)
+   ============================================================ */
+.modal-footer {
+  display: flex;
+  gap: var(--sp-3);
+  justify-content: flex-end;
+}
+
+.modal-footer .btn {
+  min-width: 96px;
+}
+
+
+/* ============================================================
+   SUCCESS STATE (shown after form submit)
+   ============================================================ */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-8) var(--sp-4);
+  text-align: center;
+}
+
+.form-success-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.form-success-text {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.form-success-sub {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   VIDEO MODAL — full-width, centered
+   ============================================================ */
+.modal-box-video {
+  border-radius: var(--radius-xl);
+  padding: var(--sp-4);
+  max-width: 90vw;
+  width: 100%;
+  position: relative;
+  align-self: center;   /* override flex-end on overlay */
+}
+
+#video-modal {
+  align-items: center;
+}
+
+#video-modal .modal-close-btn {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  z-index: 10;
+}
+
+.video-player {
+  width: 100%;
+  border-radius: var(--radius-md);
+  background: #000;
+  display: block;
+  max-height: 80vh;
+}
+
+
+/* ============================================================
+   LIGHTBOX MODAL — image fullscreen
+   ============================================================ */
+.modal-box-lightbox {
+  border-radius: var(--radius-xl);
+  padding: var(--sp-4);
+  max-width: 92vw;
+  width: 100%;
+  position: relative;
+  align-self: center;
+  background: var(--bg-surface);
+}
+
+#lightbox-modal {
+  align-items: center;
+}
+
+#lightbox-modal .modal-close-btn {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  z-index: 10;
+}
+
+.lightbox-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  display: block;
+  object-fit: contain;
+  max-height: 80vh;
+}
+
+
+/* ============================================================
+   DESKTOP — modal becomes a centered dialog (not bottom sheet)
+   ============================================================ */
+@media (min-width: 768px) {
+  .modal-overlay {
+    align-items: center;
+    padding: var(--sp-4);
+  }
+
+  .modal-box {
+    border-radius: var(--radius-xl);
+    max-width: 480px;
+    transform: translateY(16px) scale(0.98);
+  }
+
+  .modal-overlay.is-visible .modal-box {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-box-video {
+    max-width: 720px;
+  }
+
+  .modal-box-lightbox {
+    max-width: 700px;
+  }
+
+    /* ── CV Modal ─────────────────────────────────────────── */
+  .modal-box-cv {
+    max-width: 780px;
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .cv-body {
+    overflow-y: auto;
+    padding: 1.5rem 2rem;
+  }
+
+  .cv-page {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  .cv-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0 0 0.2rem;
+    letter-spacing: 0.5px;
+  }
+
+  .cv-title {
+    color: #4f8ef7;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+  }
+
+  .cv-contact {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+
+  .cv-contact a {
+    color: #4f8ef7;
+    text-decoration: none;
+  }
+
+  .cv-divider {
+    border: none;
+    border-top: 2px solid #4f8ef7;
+    margin: 1rem 0 0.8rem;
+  }
+
+  .cv-section {
+    margin-bottom: 0.8rem;
+  }
+
+  .cv-section-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #4f8ef7;
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-job-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .cv-job-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+
+  .cv-job-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .cv-company {
+    color: #4f8ef7;
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin: 0.1rem 0 0.4rem;
+  }
+
+  .cv-list {
+    padding-left: 1.2rem;
+    margin: 0.3rem 0;
+  }
+
+  .cv-list li {
+    font-size: 0.88rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+  }
+
+  .cv-text {
+    font-size: 0.88rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+  }
+  
+
+}

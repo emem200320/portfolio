@@ -1,0 +1,260 @@
+/* ============================================================
+   hero.css — Hero Section
+   ============================================================ */
+/* ── Profile photo per theme ── */
+[data-theme="dark"]  .avatar-light { display: none; }
+[data-theme="dark"]  .avatar-dark  { display: block; }
+[data-theme="light"] .avatar-dark  { display: none; }
+[data-theme="light"] .avatar-light { display: block; }
+
+/* ── Hover avatar (shown on hover/tap, hidden by default) ── */
+.avatar-hover-dark,
+.avatar-hover-light {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Show the correct hover image per theme */
+[data-theme="dark"]  .avatar-hover-dark  { display: block; }
+[data-theme="dark"]  .avatar-hover-light { display: none; }
+[data-theme="light"] .avatar-hover-light { display: block; }
+[data-theme="light"] .avatar-hover-dark  { display: none; }
+
+/* Avatar wrapper — needed for position:absolute on hover image */
+.hero-avatar-wrap {
+  position: relative;
+  width: 80px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-default);
+  box-shadow:
+    0 0 0 4px var(--accent-subtle),
+    0 4px 20px rgba(0, 0, 0, 0.4);
+  transition:
+    border-color var(--transition-slow),
+    box-shadow var(--transition-slow);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Both images fill the wrapper */
+.hero-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: opacity var(--transition-slow);
+}
+
+/* On hover or tap (.is-hovered), hide main avatar, show hover avatar */
+.hero-avatar-wrap:hover .hero-avatar,
+.hero-avatar-wrap.is-hovered .hero-avatar {
+  opacity: 0;
+}
+
+.avatar-hover-dark,
+.avatar-hover-light {
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.hero-avatar-wrap:hover .avatar-hover-dark,
+.hero-avatar-wrap:hover .avatar-hover-light,
+.hero-avatar-wrap.is-hovered .avatar-hover-dark,
+.hero-avatar-wrap.is-hovered .avatar-hover-light {
+  opacity: 1;
+}
+
+/* ============================================================
+   HERO SECTION WRAPPER
+   ============================================================ */
+.hero-section {
+  position: relative;
+}
+
+.hero-section > .section-card {
+  padding: var(--sp-6) var(--sp-5) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-5);
+  text-align: left;
+
+  /* Subtle top-accent glow */
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, var(--accent-subtle), transparent 70%),
+    var(--bg-surface);
+}
+
+
+/* ============================================================
+   THEME TOGGLE — top-right of hero card
+   ============================================================ */
+.theme-toggle-wrapper {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+}
+
+
+/* ============================================================
+   PROFILE BLOCK (avatar + name/location/role)
+   ============================================================ */
+.hero-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+/* Text block */
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-2);
+}
+
+/* Name */
+.hero-name {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+/* Verified badge */
+.verified-badge {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+[data-theme="dark"] .verified-badge {
+  filter: invert(1) drop-shadow(0 0 6px rgba(79, 142, 247, 0.55));
+}
+
+[data-theme="light"] .verified-badge {
+  filter: invert(0);
+}
+
+/* Location + Role rows */
+.hero-location,
+.hero-role {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.hero-location .icon,
+.hero-role .icon {
+  font-size: 0.95em;
+  flex-shrink: 0;
+}
+
+
+/* ============================================================
+   SOCIAL ICONS ROW
+   ============================================================ */
+.hero-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.social-btn:hover {
+  background: var(--btn-secondary-hover);
+  border-color: var(--border-default);
+}
+
+.social-btn:active {
+  transform: scale(0.92);
+}
+
+.social-btn img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+
+/* ============================================================
+   CTA BUTTONS ROW
+   ============================================================ */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--sp-3);
+  width: 100%;
+}
+
+.hero-actions .btn {
+  flex: 1;
+  max-width: none;
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--text-sm);
+}
+
+
+/* ============================================================
+   DESKTOP ADJUSTMENTS
+   ============================================================ */
+@media (min-width: 768px) {
+  .hero-avatar-wrap {
+    width: 112px;
+    height: 112px;
+  }
+
+  .hero-name {
+    font-size: var(--text-3xl);
+  }
+
+  .hero-actions .btn {
+    max-width: 180px;
+  }
+}

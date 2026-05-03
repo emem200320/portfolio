@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="John Michael Papa — Full-stack Web Developer & BSIT Student" />
+  <title>John Michael Papa</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+  <!-- ============ CSS ============ -->
+  <link rel="stylesheet" href="assets/css/reset.css" />
+  <link rel="stylesheet" href="assets/css/variables.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/theme.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/about.css" />
+  <link rel="stylesheet" href="assets/css/experience.css" />
+  <link rel="stylesheet" href="assets/css/techstack.css" />
+  <link rel="stylesheet" href="assets/css/certifications.css" />
+  <link rel="stylesheet" href="assets/css/modals.css" />
+  <link rel="stylesheet" href="assets/css/animations.css" />
+</head>
+
+<body>
+
+  <!-- =============================================
+       WRAPPER
+  ============================================== -->
+  <div class="page-wrapper">
+
+    <!-- =============================================
+         SECTION: HERO
+    ============================================== -->
+    <section id="hero" class="section hero-section">
+      <div class="section-card">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrapper">
+        <label class="switch" aria-label="Toggle dark/light mode">
+          <input type="checkbox" id="theme-toggle" />
+          <span class="slider">
+            <span class="star star_1"></span>
+            <span class="star star_2"></span>
+            <span class="star star_3"></span>
+            <svg class="cloud" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M52 34c0-8.8-7.2-16-16-16-6.1 0-11.4 3.4-14.1 8.5C19.9 25.2 17 24 14 24c-5.5 0-10 4.5-10 10s4.5 10 10 10h38c3.3 0 6-2.7 6-6z" fill="white"/>
+            </svg>
+          </span>
+        </label>
+      </div>
+
+      <!-- Profile -->
+      <div class="hero-profile">
+
+        <!-- ✅ FIX: all 4 images wrapped inside hero-avatar-wrap -->
+        <div class="hero-avatar-wrap">
+          <img
+            src="assets/images/profile.jpeg"
+            alt="John Michael Papa"
+            class="hero-avatar avatar-light"
+          />
+          <img
+            src="assets/images/profile,darkmode.png"
+            alt="John Michael Papa"
+            class="hero-avatar avatar-dark"
+          />
+          <img src="assets/images/hover.png" alt="" class="avatar-hover-light" />
+          <img src="assets/images/hover,dark.png" alt="" class="avatar-hover-dark" />
+        </div>
+
+        <div class="hero-info">
+          <h1 class="hero-name">
+            John Michael Papa
+            <img src="assets/images/icons/verified.svg" alt="Verified" class="verified-badge" />
+          </h1>
+          <p class="hero-location">
+            <span class="icon" aria-hidden="true">📍</span>
+            Sharjah, UAE
+          </p>
+          <p class="hero-role">
+            <span class="icon" aria-hidden="true">💼</span>
+            Web Developer | Mobile Developer
+          </p>
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="hero-socials">
+          <a href="https://github.com/emem200320" target="_blank" rel="noopener" aria-label="GitHub" class="social-btn">
+              <img src="assets/images/icons/github.svg" alt="GitHub" />
+            </a>
+            <a href="https://www.linkedin.com/in/john-michael-papa/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-btn">
+              <img src="assets/images/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+            <a href="https://wa.me/971562728542" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-btn">
+              <img src="assets/images/icons/whatsapp.svg" alt="WhatsApp" />
+          </a>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hero-actions">
+        <button id="open-cv-modal" class="btn btn-primary">View CV</button>
+        <button id="open-contact-modal" class="btn btn-secondary">
+          <span class="icon" aria-hidden="true">
+          Email
+        </button>
+      </div>
+      </div>
+
+    </section>
+    <!-- END: HERO -->
+
+
+    <!-- =============================================
+         SECTION: ABOUT
+    ============================================== -->
+    <section id="about" class="section about-section">
+
+      <div class="section-card">
+        <h2 class="section-heading">
+          <img src="assets/images/icons/about.svg" alt="" aria-hidden="true" class="section-heading-icon" />
+          About
+        </h2>
+        <div class="about-content">
+          <p>A Computer Science graduate with hands-on experience in mobile development and QA engineering.</p>
+          <p>I've worked as a Mobile Development Intern at Pitchmatter, contributing to Zynk.ing — a live cross-platform application built with Flutter.</p>
+          <p>I'm continuously improving my skills by experimenting with new tools, refining my workflow, and building projects that challenge my understanding of both front-end and back-end development. I enjoy sharing what I learn and reflecting on my progress as I grow as a developer.</p>
+          <p>I'm not just looking for a job. I'm looking for a team I can grow with and contribute to meaningfully.</p>
+        </div>
+      </div>
+
+    </section>
+    <!-- END: ABOUT -->
+
+
+ <!-- =============================================
+     SECTION: EXPERIENCE
+============================================== -->
+<section id="experience" class="section experience-section">
+
+  <div class="section-card">
+    <h2 class="section-heading">
+      <img src="assets/images/icons/portfolio.svg" alt="" aria-hidden="true" class="section-heading-icon" />
+      Experience
+    </h2>
+
+    <div class="apps-scroll-row">
+
+      <!-- App Card 1 -->
+      <article class="app-card" data-index="1">
+        <div class="phone-frame-wrap">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-btn-right"></div>
+            <div class="phone-btn-left1"></div>
+            <div class="phone-btn-left2"></div>
+            <div class="phone-screen">
+              <img
+                src="assets/images/thumbnails/app1-thumb.jpeg"
+                alt="App 1 preview"
+                class="phone-screenshot"
+              />
+              <button class="play-btn" data-video="assets/videos/app1.mp4" aria-label="Play video">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="app-card-info">
+          <div class="app-card-top">
+            <h3 class="app-name">Zynk.ing</h3>
+            <span class="badge badge-contributed">Contributed</span>
+          </div>
+          <p class="app-role-label">Full-stack Developer</p>
+          <p class="app-description" data-full="A live cross-platform social application built with Flutter at Pitchmatter. Contributed to core features including the Feed, Search, and Upload functionality — handling everything from translating Figma designs into pixel-perfect UI to integrating and testing REST APIs using Postman. Managed state using Riverpod, collaborated with the team through Git branching and pull requests, and delivered features currently used by real users.">
+            A live cross-platform social application built with Flutter at Pitchmatter...
+          </p>
+          <button class="read-more-btn">Read more</button>
+          <div class="tech-tags">
+            <span class="tag">Flutter</span>
+            <span class="tag">Riverpod</span>
+            <span class="tag">Postman</span>
+            <span class="tag">Dart</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">GitHub</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- App Card 2 -->
+      <article class="app-card" data-index="2">
+        <div class="phone-frame-wrap">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-btn-right"></div>
+            <div class="phone-btn-left1"></div>
+            <div class="phone-btn-left2"></div>
+            <div class="phone-screen">
+              <img
+                src="assets/images/thumbnails/app2-thumb.jpeg"
+                alt="App 2 preview"
+                class="phone-screenshot"
+              />
+              <button class="play-btn" data-video="assets/videos/app2.mp4" aria-label="Play video">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="app-card-info">
+          <div class="app-card-top">
+            <h3 class="app-name">Brainiacz</h3>
+            <span class="badge badge-built">Built</span>
+          </div>
+          <p class="app-role-label">Full-stack Developer</p>
+          <p class="app-description" data-full="A full-featured cross-platform mobile application connecting students with tutors. Built with a role-based architecture supporting three user types Student | Tutor and Admin each with their own dedicated experience. Features include tutor discovery and search, session booking and management, real-time chat, availability scheduling, module management, review and rating system, image upload, and a full admin dashboard with user management, content moderation, and analytics reports. Handled end-to-end from authentication flow and role-based routing to state management with Riverpod and backend integration with Firebase and Firestore.">
+            A full-featured cross-platform mobile application connecting students with tutors...
+          </p>
+          <button class="read-more-btn">Read more</button>
+          <div class="tech-tags">
+            <span class="tag">Flutter</span>
+            <span class="tag">Dart</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Firestore</span>
+            <span class="tag">Riverpod</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- App Card 3 -->
+      <article class="app-card" data-index="3">
+        <div class="phone-frame-wrap">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-btn-right"></div>
+            <div class="phone-btn-left1"></div>
+            <div class="phone-btn-left2"></div>
+            <div class="phone-screen phone-screen-placeholder">
+              <button class="play-btn" data-video="assets/videos/app3.mp4" aria-label="Play video">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="app-card-info">
+          <div class="app-card-top">
+            <h3 class="app-name">App Name Three</h3>
+            <span class="badge badge-built">Built</span>
+          </div>
+          <p class="app-role-label">Full-stack Developer</p>
+          <p class="app-description" data-full="An interactive learning platform fostering connections between students and global resources, with real-time collaboration and progress tracking.">
+            An interactive learning platform fostering connections between students...
+          </p>
+          <button class="read-more-btn">Read more</button>
+          <div class="tech-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Supabase</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+</section>
+<!-- END: EXPERIENCE -->
+
+    <!-- =============================================
+         SECTION: TECH STACK
+    ============================================== -->
+    <section id="techstack" class="section techstack-section">
+
+      <div class="section-card">
+        <h2 class="section-heading">
+          <img src="assets/images/icons/tools.svg" alt="" aria-hidden="true" class="section-heading-icon" />
+          Tech Stack
+        </h2>
+
+        <!-- Frontend -->
+        <div class="stack-group">
+          <h3 class="stack-category">Frontend</h3>
+          <div class="tech-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">Tailwind CSS</span>
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="stack-group">
+          <h3 class="stack-category">Backend</h3>
+          <div class="tech-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">NestJS</span>
+            <span class="tag">PHP</span>
+            <span class="tag">Laravel</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Prisma</span>
+          </div>
+        </div>
+
+        <!-- Communication / Contribution Stack -->
+        <div class="stack-group">
+          <h3 class="stack-category">Communication / Contribution Stack</h3>
+          <div class="tech-tags">
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Postman</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Cursor</span>
+            <span class="tag">Command Line</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- END: TECH STACK -->
+
+
+    <!-- =============================================
+         SECTION: CERTIFICATIONS
+    ============================================== -->
+    <section id="certifications" class="section certifications-section">
+
+      <div class="section-card">
+        <h2 class="section-heading">
+          <img src="assets/images/icons/medal.svg" alt="" aria-hidden="true" class="section-heading-icon" />
+          Certifications
+        </h2>
+
+                <div class="certs-scroll-row">
+          <div class="certs-track">
+
+            <div class="cert-item" data-src="assets/images/certs/cert1.png" data-label="Certificate 1">
+              <img src="assets/images/certs/cert1.png" alt="Certificate 1" class="cert-image" />
+            </div>
+            <div class="cert-item" data-src="assets/images/certs/cert2.png" data-label="Certificate 2">
+              <img src="assets/images/certs/cert2.png" alt="Certificate 2" class="cert-image" />
+            </div>
+            <div class="cert-item" data-src="assets/images/certs/cert3.png" data-label="Certificate 3">
+              <img src="assets/images/certs/cert3.png" alt="Certificate 3" class="cert-image" />
+            </div>
+
+            <!-- Duplicate for seamless loop -->
+            <div class="cert-item" data-src="assets/images/certs/cert1.png" data-label="Certificate 1">
+              <img src="assets/images/certs/cert1.png" alt="Certificate 1" class="cert-image" />
+            </div>
+            <div class="cert-item" data-src="assets/images/certs/cert2.png" data-label="Certificate 2">
+              <img src="assets/images/certs/cert2.png" alt="Certificate 2" class="cert-image" />
+            </div>
+            <div class="cert-item" data-src="assets/images/certs/cert3.png" data-label="Certificate 3">
+              <img src="assets/images/certs/cert3.png" alt="Certificate 3" class="cert-image" />
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- END: CERTIFICATIONS -->
+
+  </div>
+  <!-- END: WRAPPER -->
+
+
+  <!-- =============================================
+       MODAL: SEND ME A MESSAGE (CONTACT)
+  ============================================== -->
+  <div id="contact-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+
+      <div class="modal-header">
+        <div>
+          <h2 id="contact-modal-title" class="modal-title">Send Me A Message</h2>
+          <p class="modal-subtitle">Quick contact form for mobile and desktop.</p>
+        </div>
+        <button class="modal-close-btn" id="close-contact-modal" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="contact-name" class="form-label">Name</label>
+          <input type="text" id="contact-name" class="form-input" placeholder="Your name" />
+          <span class="form-error" id="error-name"></span>
+        </div>
+        <div class="form-group">
+          <label for="contact-email" class="form-label">Email</label>
+          <input type="email" id="contact-email" class="form-input" placeholder="you@example.com" />
+          <span class="form-error" id="error-email"></span>
+        </div>
+        <div class="form-group">
+          <label for="contact-message" class="form-label">Message</label>
+          <textarea id="contact-message" class="form-input form-textarea" placeholder="Write your message..."></textarea>
+          <span class="form-error" id="error-message"></span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="cancel-contact-modal" class="btn btn-secondary">Cancel</button>
+        <button id="submit-contact-form" class="btn btn-primary">Submit</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- END: CONTACT MODAL -->
+
+
+  <!-- =============================================
+       MODAL: VIDEO PLAYER
+  ============================================== -->
+  <div id="video-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box modal-box-video" role="dialog" aria-modal="true" aria-label="Video player">
+      <button class="modal-close-btn" id="close-video-modal" aria-label="Close video">✕</button>
+      <video id="video-player" class="video-player" controls playsinline>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+  <!-- END: VIDEO MODAL -->
+
+
+  <!-- =============================================
+       MODAL: CERTIFICATE LIGHTBOX
+  ============================================== -->
+  <div id="lightbox-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-box modal-box-lightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+      <button class="modal-close-btn" id="close-lightbox-modal" aria-label="Close lightbox">✕</button>
+      <img id="lightbox-image" src="" alt="Certificate fullscreen" class="lightbox-image" />
+    </div>
+  </div>
+  <!-- END: LIGHTBOX MODAL -->
+
+  <!-- CV MODAL -->
+<div id="cv-modal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-box modal-box-cv" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+
+    <div class="modal-header">
+      <h2 id="cv-modal-title" class="modal-title">Curriculum Vitae</h2>
+      <button class="modal-close-btn" id="close-cv-modal" aria-label="Close CV">✕</button>
+    </div>
+
+    <div class="modal-body cv-body">
+      <div class="cv-page">
+
+        <!-- CV Header -->
+        <div class="cv-header">
+          <div class="cv-header-text">
+            <h1 class="cv-name">JOHN MICHAEL PAPA</h1>
+            <p class="cv-title">Flutter Developer | Mobile UI Engineer</p>
+            <p class="cv-contact">
+              ✉ johnmichaelpapa18@gmail.com &nbsp;|&nbsp;
+              📞 +971 562 728 542 &nbsp;|&nbsp;
+              <a href="https://github.com/emem200320" target="_blank">GitHub</a> &nbsp;|&nbsp;
+              <a href="https://www.linkedin.com/in/john-michael-papa/" target="_blank">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+
+        <hr class="cv-divider" />
+
+        <!-- Profile -->
+        <div class="cv-section">
+          <h2 class="cv-section-title">PROFILE</h2>
+          <p class="cv-text">Flutter Developer currently shipping features on Zynk.ing — a live social mobile app built by Pitchamatter. Over the past few months I have owned the Home/Feed and Search screens end-to-end, from reading Figma files to integrating production APIs and resolving QA feedback. I work with Riverpod for state management, Postman for API testing, and Git, GitHub for team collaboration. Outside of the internship I built Brainiacz, a full-stack tutoring platform, solo — handling architecture, Firebase backend, real-time messaging, and the full release cycle myself. I am looking for a remote Flutter role where I can keep building real products with a team that moves fast.</p>
+        </div>
+
+        <hr class="cv-divider" />
+
+        <!-- Experience -->
+        <div class="cv-section">
+          <h2 class="cv-section-title">EXPERIENCE</h2>
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-title">Flutter Developer — Remote Internship</span>
+              <span class="cv-job-date">Feb 2026 – May 2026</span>
+            </div>
+            <p class="cv-company">Pitchamatter (zynk.ing)</p>
+            <ul class="cv-list">
+              <li>Built core Home/Feed feature (like, share, repost, rate, comment) and full Search screen with filter tabs (Popular, Trending, Latest) and content tabs (All, Posts, Hashtags, People) from scratch</li>
+              <li>Integrated RESTful APIs by testing endpoints in Postman then implementing service and endpoint layers in Flutter to connect frontend with backend data</li>
+              <li>Implemented Riverpod state management for real-time UI updates; resolved critical bugs including feed flickering on like and rate interactions</li>
+              <li>Collaborated with QA on Figma design accuracy, debugged color mismatches, iterated to pixel-perfect results, and proactively improved UI beyond original specifications</li>
+              <li>Maintained GitHub workflow with detailed PR descriptions documenting all fixes and features for team review</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="cv-divider" />
+
+        <!-- Projects -->
+        <div class="cv-section">
+          <h2 class="cv-section-title">PROJECTS</h2>
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-title">Brainiacz — Full Stack Tutoring Mobile App (Thesis)</span>
+              <span class="cv-job-date">Sep 2024 – Mar 2025</span>
+            </div>
+            <p class="cv-company">Christ the King College</p>
+            <ul class="cv-list">
+              <li>Sole developer and architect — independently designed full system architecture including folder structure, module separation (utils, home, dashboards), and data flow from the ground up</li>
+              <li>Built with Flutter and Dart frontend; Firebase backend including Authentication, Firestore, and Messaging; Provider for state management across student and tutor dashboards</li>
+              <li>Delivered complete feature set: user profiles, tutor-student matching logic, rating system, real-time messaging, UI/UX design, manual testing, and full release validation</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="cv-divider" />
+
+        <!-- Skills -->
+        <div class="cv-section">
+          <h2 class="cv-section-title">SKILLS</h2>
+          <p class="cv-text"><strong>Mobile:</strong> Flutter, Dart, Riverpod, Provider, setState, Widget composition, Responsive UI, Mobile-first design</p>
+          <p class="cv-text"><strong>Backend & APIs:</strong> REST API integration, Postman, Firebase Auth, Firestore, Firebase Messaging, Role-based access</p>
+          <p class="cv-text"><strong>Design & Architecture:</strong> Figma-to-Flutter, pixel-perfect UI, app architecture design, component-based development</p>
+          <p class="cv-text"><strong>Web & Tools:</strong> JavaScript, HTML, CSS, WordPress, Elementor, Git, GitHub, Google Workspace, Microsoft Office</p>
+        </div>
+
+        <hr class="cv-divider" />
+
+        <!-- Education -->
+        <div class="cv-section">
+          <h2 class="cv-section-title">EDUCATION</h2>
+          <div class="cv-job">
+            <div class="cv-job-header">
+              <span class="cv-job-title">Bachelor of Science in Computer Science</span>
+              <span class="cv-job-date">2021 – 2025</span>
+            </div>
+            <p class="cv-company">Christ the King College Incorporated</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- END: CV MODAL -->
+
+  <!-- =============================================
+       JS — load order matters
+  ============================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/experience.js"></script>
+  <script src="assets/js/certifications.js"></script>
+  <script src="assets/js/contact.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

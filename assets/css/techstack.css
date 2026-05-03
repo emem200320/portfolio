@@ -1,0 +1,51 @@
+/* ============================================================
+   techstack.css — Tech Stack Section
+   ============================================================ */
+
+
+/* ============================================================
+   STACK GROUPS
+   ============================================================ */
+.techstack-section .section-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.stack-group {
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.stack-group:first-of-type {
+  padding-top: 0;
+}
+
+.stack-group:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+
+/* ============================================================
+   CATEGORY LABEL
+   ============================================================ */
+.stack-category {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+
+/* ============================================================
+   DESKTOP
+   ============================================================ */
+@media (min-width: 768px) {
+  .stack-group {
+    padding: var(--sp-5) 0;
+  }
+}

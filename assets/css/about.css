@@ -1,0 +1,42 @@
+/* ============================================================
+   about.css — About Section
+   ============================================================ */
+
+
+/* ============================================================
+   ABOUT CONTENT — paragraph spacing & typography
+   ============================================================ */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.about-content p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  font-weight: 300;
+  transition: color var(--transition-slow);
+}
+
+/* First paragraph slightly more prominent */
+.about-content p:first-child {
+  color: var(--text-primary);
+  font-weight: 400;
+  font-size: var(--text-base);
+}
+
+
+/* ============================================================
+   DESKTOP
+   ============================================================ */
+@media (min-width: 768px) {
+  .about-content p {
+    font-size: var(--text-base);
+  }
+
+  .about-content p:first-child {
+    font-size: var(--text-md);
+  }
+}
