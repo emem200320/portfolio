@@ -15,32 +15,39 @@
   }
 
 
-  /* ── Scroll-reveal for sections ───────────────────────── */
-  const sections = document.querySelectorAll(".section");
+/* ── Scroll-reveal for sections ───────────────────────── */
+const sections = document.querySelectorAll(".section");
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -32px 0px",
-      }
-    );
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: "0px 0px -32px 0px",
+    }
+  );
 
-    sections.forEach((section) => {
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      // Already visible on load — skip animation
+      section.classList.add("is-revealed");
+    } else {
+      // Below the fold — animate on scroll
       section.classList.add("reveal-ready");
       observer.observe(section);
-    });
-  } else {
-    sections.forEach((s) => s.classList.add("is-revealed"));
-  }
+    }
+  });
+} else {
+  sections.forEach((s) => s.classList.add("is-revealed"));
+}
 
 
   /* ── Prevent body scroll bleed on iOS ────────────────── */
