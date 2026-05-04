@@ -106,6 +106,16 @@
   right: var(--sp-3);
 }
 
+@media (max-width: 767px) {
+  .theme-toggle-wrapper {
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: calc(-1 * var(--sp-3));
+  }
+}
+
 
 /* ============================================================
    PROFILE BLOCK (avatar + name/location/role)
