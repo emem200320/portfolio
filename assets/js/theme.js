@@ -41,10 +41,10 @@
     // Sync checkbox state to current theme on load
     // checked = light mode, unchecked = dark mode
     const currentTheme = root.getAttribute("data-theme");
-    toggleInput.checked = currentTheme === LIGHT;
+    toggleInput.checked = currentTheme === DARK;
 
     toggleInput.addEventListener("change", () => {
-      applyTheme(toggleInput.checked ? LIGHT : DARK);
+      applyTheme(toggleInput.checked ? DARK : LIGHT);
     });
   });
 
