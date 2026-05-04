@@ -49,3 +49,24 @@
     padding: var(--sp-5) 0;
   }
 }
+
+/* ============================================================
+   TAG HOVER EFFECTS
+   ============================================================ */
+.tag {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.tag:hover {
+  transform: translateY(-3px) scale(1.08);
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(79, 142, 247, 0.4);
+}
+
+[data-theme="light"] .tag:hover {
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+

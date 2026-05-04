@@ -196,39 +196,120 @@
 .hero-socials {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--sp-3);
+  justify-content: flex-start;
+  gap: var(--sp-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.social-icon {
+  position: relative;
   width: 42px;
   height: 42px;
   border-radius: var(--radius-md);
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
-  transition:
-    background var(--transition-fast),
-    border-color var(--transition-fast),
-    transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.social-icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
   -webkit-tap-highlight-color: transparent;
 }
 
-.social-btn:hover {
-  background: var(--btn-secondary-hover);
-  border-color: var(--border-default);
-}
-
-.social-btn:active {
-  transform: scale(0.92);
-}
-
-.social-btn img {
+.social-icon img {
   width: 18px;
   height: 18px;
   object-fit: contain;
+}
+
+/* Invert icons to white in dark mode so they're visible */
+[data-theme="dark"] .social-icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* Override back to white when hovering (already handled by hover rule) */
+[data-theme="light"] .social-icon img {
+  filter: none;
+}
+
+/* Tooltip */
+.social-tooltip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--bg-elevated);
+  padding: 4px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.social-tooltip::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+.social-icon:hover .social-tooltip {
+  top: -38px;
+  opacity: 1;
+}
+
+/* Per-platform hover colors */
+.social-icon.github:hover {
+  background: #333;
+  border-color: #333;
+}
+.social-icon.github:hover .social-tooltip,
+.social-icon.github:hover .social-tooltip::before {
+  background: #333;
+}
+
+.social-icon.linkedin:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+}
+.social-icon.linkedin:hover .social-tooltip,
+.social-icon.linkedin:hover .social-tooltip::before {
+  background: #0a66c2;
+}
+
+.social-icon.whatsapp:hover {
+  background: #25d366;
+  border-color: #25d366;
+}
+.social-icon.whatsapp:hover .social-tooltip,
+.social-icon.whatsapp:hover .social-tooltip::before {
+  background: #25d366;
+}
+
+/* Invert icons to white on colored hover */
+.social-icon.github:hover img,
+.social-icon.linkedin:hover img,
+.social-icon.whatsapp:hover img {
+  filter: brightness(0) invert(1);
 }
 
 
@@ -243,11 +324,67 @@
   width: 100%;
 }
 
-.hero-actions .btn {
-  flex: 1;
-  max-width: none;
-  padding: var(--sp-3) var(--sp-4);
-  font-size: var(--text-sm);
+/* Email fancy button — same style as the Play reference */
+.btn-email-fancy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  height: 42px;
+  color: white;
+  text-shadow: 2px 2px rgb(116, 116, 116);
+  text-transform: uppercase;
+  cursor: pointer;
+  border: solid 2px black;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 17px;
+  background-color: hsl(49deg 98% 60%);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.btn-email-fancy:active {
+  transform: scale(0.9);
+  transition: all 100ms ease;
+}
+
+.btn-email-fancy svg {
+  transition: all 0.5s ease;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.btn-email-text {
+  transition: all 0.5s ease;
+  transition-delay: 300ms;
+}
+
+.btn-email-fancy:hover svg {
+  transform: scale(3) translate(50%);
+}
+
+.btn-email-now {
+  position: absolute;
+  left: 0;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  z-index: 2;
+  padding-left: 10px;
+}
+
+
+.btn-email-fancy:hover .btn-email-now {
+  transform: translateX(10px);
+  transition-delay: 300ms;
+}
+
+.btn-email-fancy:hover .btn-email-text {
+  transform: translateX(200%);
+  transition-delay: 300ms;
 }
 
 
@@ -267,4 +404,134 @@
   .hero-actions .btn {
     max-width: 180px;
   }
+}
+
+/* ============================================================
+   EMAIL BUTTON — DARK / LIGHT THEME
+   ============================================================ */
+
+/* DARK MODE — Night Sky (Starry Night) */
+[data-theme="dark"] .btn-email-fancy {
+  background-color: #050510;
+  background-image: 
+    /* The Stars */
+    radial-gradient(1px 1px at 20% 30%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 50% 70%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 80% 40%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 10% 80%, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 90% 10%, #fff, rgba(0,0,0,0)),
+    /* The Galactic Glow */
+    radial-gradient(circle at 30% 50%, rgba(79, 142, 247, 0.15), transparent 100%),
+    linear-gradient(135deg, #050510 0%, #101025 100%);
+  
+  border: 2px solid #e53935; /* Among Us Red */
+  box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+}
+
+/* LIGHT MODE — Morning Sky (Sunny Day) */
+[data-theme="light"] .btn-email-fancy {
+  background-color: #87ceeb;
+  background-image: 
+    /* The Sun */
+    radial-gradient(circle at 15% 25%, #ffcf48 0%, #ffcf48 15%, rgba(255, 207, 72, 0) 50%),
+    /* The Sky */
+    linear-gradient(180deg, #87ceeb 0%, #b0e0f5 100%);
+    
+  border: 2px solid #000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Text color adjustments for Light Mode */
+[data-theme="light"] .btn-email-fancy .btn-email-text,
+[data-theme="light"] .btn-email-fancy .btn-email-now {
+  color: #ffffff; 
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* ============================================================
+   VIEW CV BUTTON — DOWNLOAD STYLE + DARK / LIGHT THEME
+   ============================================================ */
+.download-button {
+  position: relative;
+  border-width: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  z-index: 1;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.download-button .docs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: var(--radius-sm);
+  z-index: 1;
+  border: solid 1px var(--border-default);
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  white-space: nowrap;
+}
+
+.download-button:hover {
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.download {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  margin: 0 auto;
+  z-index: -1;
+  border-radius: var(--radius-sm);
+  transform: translateY(0%);
+  border: solid 1px #01e0572d;
+  background-color: #01e056;
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.download-button:hover .download {
+  transform: translateY(100%);
+}
+
+.download svg polyline,
+.download svg line {
+  animation: docs 1s infinite;
+}
+
+@keyframes docs {
+  0%   { transform: translateY(0%); }
+  50%  { transform: translateY(-15%); }
+  100% { transform: translateY(0%); }
+}
+
+/* DARK MODE */
+[data-theme="dark"] .download-button .docs {
+  background-color: #ffffff;
+  border-color: var(--border-default);
+  color: #111118;
+}
+
+[data-theme="dark"] .download-button .docs svg {
+  stroke: #111118;
+}
+
+/* LIGHT MODE */
+[data-theme="light"] .download-button .docs {
+  background-color: #242a35;
+  border-color: var(--border-default);
+  color: #f0f0f5;
 }

@@ -430,3 +430,150 @@
   
 
 }
+
+/* ============================================================
+   CONTACT MODAL — AMONG US THEME
+   ============================================================ */
+#contact-modal .modal-box {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Crewmate images — hidden by default */
+.contact-crewmate {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  display: none;
+}
+
+/* Label crewmates — hidden by default */
+.label-crewmate {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  display: none;
+  vertical-align: middle;
+}
+
+/* Keep all form content above decorations */
+#contact-modal .modal-header,
+#contact-modal .modal-body,
+#contact-modal .modal-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── DARK MODE ── */
+[data-theme="dark"] #contact-modal .modal-box {
+  background-color: #0f0f1a;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 40%, #fff 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 10%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 60%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 25%, #fff 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 80% 75%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 45%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 80%, #fff 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 60% 85%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 65%, #fff 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 10%, #fff 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 5% 55%, #fff 0%, transparent 100%);
+  border-color: #1a1a3a;
+}
+
+[data-theme="dark"] #contact-modal .modal-title {
+  color: #ffffff;
+}
+
+[data-theme="dark"] #contact-modal .modal-subtitle {
+  color: #6b6b8a;
+}
+
+[data-theme="dark"] #contact-modal .form-label {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+[data-theme="dark"] #contact-modal .form-input {
+  background: #13131f;
+  border-color: #2a2a5a;
+  color: #c0c0e0;
+}
+
+[data-theme="dark"] #contact-modal .form-input:focus {
+  border-color: #4f8ef7;
+  box-shadow: 0 0 0 3px rgba(79, 142, 247, 0.25),
+              0 0 12px rgba(79, 142, 247, 0.15);
+}
+
+[data-theme="dark"] #contact-modal .form-input::placeholder {
+  color: #3a3a6a;
+}
+
+/* Show red crewmate top-right in dark mode */
+[data-theme="dark"] .contact-crewmate-red {
+  display: block;
+  width: 80px;
+  top: -10px;
+  right: 50px;
+  transform: rotate(-10deg);
+}
+
+/* Show cyan crewmate bottom-right in dark mode */
+[data-theme="dark"] .contact-crewmate-cyan {
+  display: block;
+  width: 50px;
+  bottom: 10px;
+  right: 16px;
+}
+
+/* ── LIGHT MODE ── */
+[data-theme="light"] #contact-modal .modal-box {
+  background: #d7dff5;
+  border-color: #dce8ff;
+}
+
+[data-theme="light"] #contact-modal .modal-title {
+  color: #111118;
+}
+
+[data-theme="light"] #contact-modal .modal-subtitle {
+  color: #7070a0;
+}
+
+[data-theme="light"] #contact-modal .form-label {
+  color: #040404;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+[data-theme="light"] #contact-modal .form-input {
+  background: #e8f0fe;
+  border-color: #c8d8f8;
+  color: #111118;
+}
+
+[data-theme="light"] #contact-modal .form-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Show ghost watermark in light mode */
+[data-theme="light"] .contact-crewmate-ghost {
+  display: block;
+  width: 320px;
+  opacity: 0.15;
+  top: 500%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Show label crewmates in light mode */
+[data-theme="light"] .label-crewmate {
+  display: inline-block;
+}
